@@ -36,4 +36,14 @@ public class Piloto {
     public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
+
+
+    @Override
+    public String toString() {
+        return "Piloto{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", sexo=" + sexo +
+                '}';
+    }
 }

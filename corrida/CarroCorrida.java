@@ -1,7 +1,5 @@
 package corrida;
 
-import java.security.KeyStore;
-
 public class CarroCorrida {
     private Integer numeroCarro;
     private Piloto piloto;
@@ -63,16 +61,28 @@ public class CarroCorrida {
 
     public void acelerar(float valor){
         float novaVelocidade = getVelocidadeAtual()+valor;
-        if(ligado && novaVelocidade <= getVelocidadeMaxima()){
-            setVelocidadeAtual(novaVelocidade);
+
+        if (ligado){
+            if (novaVelocidade <= getVelocidadeMaxima()){
+                setVelocidadeAtual(novaVelocidade);
+            }else{
+                setVelocidadeAtual(getVelocidadeMaxima());
+            }
+        }
+        else{
+            System.out.println("Ligue o carro para conseguir acelerar!");
         }
     }
     public void frear(float valor){
         float novaVelocidade = getVelocidadeAtual()-valor;
-        if (novaVelocidade >= 0.0 && ligado){
-            setVelocidadeAtual(novaVelocidade);
-        }else if(ligado){
-           parar();
+        if(ligado){
+          if(novaVelocidade >= 0.0){
+              setVelocidadeAtual(novaVelocidade);
+          }else{
+              parar();
+          }
+        }else{
+            System.out.println("O carro está desligado");
         }
     }
     public void parar(){
@@ -82,6 +92,22 @@ public class CarroCorrida {
         setLigado(true);
     }
     public void desligar(){
-        setLigado(false);
+        if(getVelocidadeAtual()>0){
+            System.out.println("Pare o carro antes de desligar");
+        }
+        else{
+            setLigado(false);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "CarroCorrida{" +
+                "numeroCarro=" + numeroCarro +
+                ", piloto=" + piloto +
+                ", velocidadeMaxima=" + velocidadeMaxima +
+                ", velocidadeAtual=" + velocidadeAtual +
+                ", ligado=" + ligado +
+                '}';
     }
 }
