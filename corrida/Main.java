@@ -8,6 +8,15 @@ public class Main {
         System.out.println(carroVermelho);
         carroVermelho.acelerar(25);
         System.out.println("Velocidade atual é " + carroVermelho.getVelocidadeAtual());
+        carroVermelho.frear(50);
+        System.out.println("Velocidade atual é " + carroVermelho.getVelocidadeAtual());
+        carroVermelho.acelerar(100);
+        System.out.println("Velocidade atual é " + carroVermelho.getVelocidadeAtual());
+        carroVermelho.desligar();
+        carroVermelho.frear(100);
+        carroVermelho.parar();
+        carroVermelho.desligar();
+        carroVermelho.acelerar(10);
     }
 
 

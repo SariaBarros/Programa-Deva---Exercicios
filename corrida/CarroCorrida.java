@@ -68,6 +68,7 @@ public class CarroCorrida {
             if (novaVelocidade <= getVelocidadeMaxima()){
                 setVelocidadeAtual(novaVelocidade);
             }else{
+                System.out.println("A velocidade máxima é " + getVelocidadeMaxima());
                 setVelocidadeAtual(getVelocidadeMaxima());
             }
         }
