@@ -57,12 +57,14 @@ public class CarroCorrida {
         this.ligado = ligado;
     }
 
+
     //Metodos
 
     public void acelerar(float valor){
         float novaVelocidade = getVelocidadeAtual()+valor;
 
         if (ligado){
+            System.out.println("acelerando");
             if (novaVelocidade <= getVelocidadeMaxima()){
                 setVelocidadeAtual(novaVelocidade);
             }else{
@@ -75,6 +77,7 @@ public class CarroCorrida {
     }
     public void frear(float valor){
         float novaVelocidade = getVelocidadeAtual()-valor;
+        System.out.println("Freando");
         if(ligado){
           if(novaVelocidade >= 0.0){
               setVelocidadeAtual(novaVelocidade);
@@ -87,15 +90,18 @@ public class CarroCorrida {
     }
     public void parar(){
         setVelocidadeAtual(0);
+        System.out.println("Parou");
     }
     public void ligar(){
         setLigado(true);
+        System.out.println("ligando");
     }
     public void desligar(){
         if(getVelocidadeAtual()>0){
             System.out.println("Pare o carro antes de desligar");
         }
         else{
+            System.out.println("Desligando");
             setLigado(false);
         }
     }
